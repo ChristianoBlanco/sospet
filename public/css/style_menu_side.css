@@ -1,0 +1,76 @@
+/* CSS */
+.button-24 {
+  background-color:#037FBB;;
+  border: 1px solid #037FBB;;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  /*font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif; */
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: 280px;
+  margin-top: 5px;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #037FBB;;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
+.button-24b {
+    background-color:firebrick;
+    border: 1px solid firebrick;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    /*font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif; */
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 280px;
+    margin-top: 5px;
+  }
+
+  .button-24b:hover,
+  .button-24b:active {
+    background-color: initial;
+    background-position: 0 0;
+    color:firebrick;
+  }
+
+  .button-24b:active {
+    opacity: .5;
+  }
