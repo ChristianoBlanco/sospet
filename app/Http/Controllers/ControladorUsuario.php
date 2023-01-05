@@ -134,10 +134,11 @@ class ControladorUsuario extends Controller
         ]); */
 
        include('../Includes/validacao_dados/validacao_dados.php');
+       
+        
+       $usuarios = User::find($id);
+        $help = new Helpers;
 
-       $help = new Helpers;
-
-        $usuarios = User::find($id);
         if(isset($usuarios)){
             $usuarios->name             = $request->nome;
             $usuarios->sobrenome        = $request->sobrenome;
@@ -150,8 +151,8 @@ class ControladorUsuario extends Controller
             $usuarios->cidade           = $request->cidade;
             $usuarios->uf               = $request->uf;
             $usuarios->save();
-        }
-        return redirect('/painel-edit-usuario/'.$id)->with('msg_status', 'Dados atualizados com sucesso !');
+        } 
+       return redirect('/painel-edit-usuario/'.$id)->with('msg_status', 'Dados atualizados com sucesso !');
 
     }
 

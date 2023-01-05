@@ -15,8 +15,7 @@
 </script>
 <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}">
 </script>
-<script type="text/javascript" src="{{ asset('js/popper.js')}}">
-</script>
+
 <script type="text/javascript" src="{{ asset('js/main.js')}}">
 </script>
 <script type="text/javascript" src="{{ asset('js/jquery-ui.min.js')}}">
@@ -38,9 +37,9 @@
 <script src="{{ asset('js/sidebarmenu.js')}}"></script>
 <!--Custom -->
 <script src="{{ asset('js/custom.js')}}"></script>
-<!--Somente números  -->
+<!--Somente nï¿½meros  -->
 <script src="{{ asset('js/somente_numeros.js')}}"></script>
-<!--Confirmações de ações de butões, links.... -->
+<!--Confirmaï¿½ï¿½es de aï¿½ï¿½es de butï¿½es, links.... -->
 <script src="{{ asset('js/ConfirmaOpcoes.js')}}"></script>
 
 
@@ -129,13 +128,13 @@
 <li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  echo utf8_encode('Sobre o site'); ?></a>
 <hr class ="horiz_separator"/>
 </li>
-<!-- <li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?//php echo utf8_encode('Serviços'); ?></a>
+<!-- <li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?//php echo utf8_encode('Serviï¿½os'); ?></a>
 <hr class ="horiz_separator"/>  -->
 </li>
 <li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Parceiros</a>
 <hr class ="horiz_separator"/>
 </li>
-<!-- <li class="ttr_menu_items_parent dropdown"><a href="#login-form" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  //echo utf8_encode('Login do usuário'); ?> </a> -->
+<!-- <li class="ttr_menu_items_parent dropdown"><a href="#login-form" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  //echo utf8_encode('Login do usuï¿½rio'); ?> </a> -->
     @auth
       <hr class ="horiz_separator"/>
     @endauth
@@ -154,7 +153,7 @@
     <a href="#" class="ttr_menu_items_parent_link nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <span class="menuchildicon"><span class="menuchildicon"></span><?= utf8_encode("Bem-vindo(a), ") ?> {{ Auth::user()->name }} </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width:200px; ">
-        <li><a class="dropdown-item" href="{{url('/painel')}}"><?= utf8_encode("Painel do usuário") ?></a></li>
+        <li><a class="dropdown-item" href="{{url('/painel')}}"><?= utf8_encode("Painel do usuï¿½rio") ?></a></li>
         <li><a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -171,7 +170,7 @@
 
     @guest
 
-    <a href="{{ route('login') }}" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  echo utf8_encode('Login do usuário'); ?> </a>
+    <a href="{{ route('login') }}" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  echo utf8_encode('Login do usuï¿½rio'); ?> </a>
     <hr class ="horiz_separator"/>
 
     @endguest

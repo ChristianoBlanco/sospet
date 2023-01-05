@@ -8,21 +8,21 @@
         'sobrenome' => ['min:3'],
         'cpf' => 'required|Cpf',
         'email' => ['email:filter'],
-        'tel1' => ['min:10'],
-        'tel2' => ['min:10'],
+        'tel1' => ['min:14'],
+        'tel2' => ['min:14'],
         //'password' => ['required', 'confirmed', Password::min(8)],
     ];
     $message = [
-        'nome.min' => utf8_encode('Nome deve conter mínimo de 3 caracteres'),
-        'nome.max' => 'Excedeu o Número maximo de Caracteres',
-        'sobrenome.min' => utf8_encode('Sobrenome deve conter mínimo de 3 caracteres'),
-        'cpf.min' => utf8_encode('O CPF deve conter 11 numeros'),
-        //'cpf.cpf' => utf8_encode('O CPF Inválido'),
+        'nome.min' => 'Nome deve conter mÃ­nimo de 3 caracteres',
+        'nome.max' => 'Excedeu o NÃºmero maximo de Caracteres',
+        'sobrenome.min' => 'Sobrenome deve conter mÃ­nimo de 3 caracteres',
+        'cpf.min' => 'O CPF deve conter 11 nÃºmeros',
+        //'cpf.cpf' => 'O CPF InvÃ¡lido',
         'cpf.Cpf' => 'Formato falso CPF !',
         'email.email' => 'E-mail invalido',
         'tel1.min' => 'Numero invalido: verifique o DDD e a quantidade de caracteres',
         'tel2.min' => 'Numero invalido: verifique o DDD e a quantidade de caracteres',
-        //'password.confirmed' => utf8_encode('Os campos senha e confirmar senha não conferem'),
+        //'password.confirmed' => 'Os campos senha e confirmar senha nÃ£o conferem',
     ];
 
     $request->validate($rules, $message);

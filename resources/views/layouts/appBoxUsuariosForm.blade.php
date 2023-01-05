@@ -1,6 +1,6 @@
 <div class="box content">
     <h1 style="font-size: 20px; font-weight: 900; color:#000000; margin-bottom:50px;">
-        <?= utf8_encode('Dados do usuário') ?></h1>
+        <?= 'Dados do usuÃ¡rio' ?></h1>
 
 
     @if (session('msg_status'))
@@ -13,8 +13,6 @@
     <form action="{{ url('/usuarios') }}{{ '/' }}{{ Auth::user()->id }}" method="POST"
         style="margin-top: 20px; font-size:15px;">
         @csrf
-
-
 
 
         <input type="hidden" name="id_login" value="{{ $usuarios->id }}">
@@ -47,19 +45,19 @@
         </div>
 
         <div class="col-md-6" style="padding-right:10px; margin-top:15px;">
-            <label for="inputEndereco" class="form-label"><?= utf8_encode('Endereço') ?></label>
+            <label for="inputEndereco" class="form-label"><?= 'EndereÃ§o' ?></label>
             <input type="text" class="form-control" id="endereco" name="endereco"
-                placeholder="<?= utf8_encode('Endereço completo)') ?>" value="{{ $usuarios->endereco }}"
+                placeholder="<?= 'EndereÃ§o completo)' ?>" value="{{ $usuarios->endereco }}"
                 maxlength="100"required>
         </div>
         <div class="col-md-3" style="padding-right:10px; margin-top:15px;">
             <label for="inputState" class="form-label" style="padding-right:10px;">Cidade</label>
             <select id="inputState" class="form-select" name="cidade" required>
                 <option selected>{{ $usuarios->cidade }}</option>
-                <option><?= utf8_encode('Espírito Santo') ?></option>
+                <option><?= utf8_encode('Espï¿½rito Santo') ?></option>
                 <option><?= utf8_encode('Minas Gerais') ?></option>
                 <option><?= utf8_encode('Rio de Janeiro') ?></option>
-                <option><?= utf8_encode('São Paulo') ?></option>
+                <option><?= utf8_encode('Sï¿½o Paulo') ?></option>
             </select>
         </div>
 
@@ -105,13 +103,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header" >
-                        <h5 class="modal-title" id="exampleModalLabel"><?= utf8_encode('Dados do usuário'); ?></h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?= utf8_encode('Dados do usuï¿½rio'); ?></h5>
                     </div>
                     <div class="modal-body">
                         Deseja exluir realmente sua conta ?
 
                         <ul style="margin-left:30px;margin-top:15px;">
-                            <li><?= utf8_encode('Depois de Exluída somente o Administrador pode recuperar.'); ?></li>
+                            <li><?= utf8_encode('Depois de Exluï¿½da somente o Administrador pode recuperar.'); ?></li>
                             <li><?= utf8_encode('Ou criar uma nova conta mas com e-mail novo.'); ?></li>
                         </ul>
                     </div>
