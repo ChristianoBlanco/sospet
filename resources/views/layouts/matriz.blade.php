@@ -122,7 +122,7 @@
 </div>
 <div class="menu-center collapse navbar-collapse">
 <ul class="ttr_menu_items nav navbar-nav navbar-right">
-<li class="ttr_menu_items_parent dropdown active"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Home</a>
+<li class="ttr_menu_items_parent dropdown active"><a href="{{ url('/index') }}" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Home</a>
 <hr class ="horiz_separator"/>
 </li>
 <li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  echo utf8_encode('Sobre o site'); ?></a>
@@ -153,7 +153,7 @@
     <a href="#" class="ttr_menu_items_parent_link nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <span class="menuchildicon"><span class="menuchildicon"></span><?= utf8_encode("Bem-vindo(a), ") ?> {{ Auth::user()->name }} </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width:200px; ">
-        <li><a class="dropdown-item" href="{{url('/painel')}}"><?= utf8_encode("Painel do usu�rio") ?></a></li>
+        <li><a class="dropdown-item" href="{{url('/painel')}}"><?= 'Painel do usuário'; ?></a></li>
         <li><a class="dropdown-item" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -170,7 +170,7 @@
 
     @guest
 
-    <a href="{{ route('login') }}" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?php  echo utf8_encode('Login do usu�rio'); ?> </a>
+    <a href="{{ route('login') }}" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span><?= 'Login do usuário'; ?> </a>
     <hr class ="horiz_separator"/>
 
     @endguest

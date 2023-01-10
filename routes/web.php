@@ -32,11 +32,13 @@ Route::get('/painel-cad-anuncio','App\Http\Controllers\ControladorAnuncio@index'
 //Route::get('/painel-cad-usuario','App\Http\Controllers\ControladorUsuario@index')->middleware(['auth']);
 Route::get('/painel-edit-usuario/{id}','App\Http\Controllers\ControladorUsuario@edit')->middleware(['auth']);
 Route::get('/painel-edit-usuario-senha/{id}','App\Http\Controllers\ControladorUsuario@editSenha')->middleware(['auth']);
+Route::get('/painel-edit-usuario-email/{id}','App\Http\Controllers\ControladorUsuario@editEmail')->middleware(['auth']);
 
 //Route::post('usuarios','App\Http\Controllers\ControladorUsuario@store')->middleware(['auth']);
 Route::post('/usuarios/{id}','App\Http\Controllers\ControladorUsuario@update')->middleware(['auth']);
 Route::get('/usuarios-softdelete/{id}','App\Http\Controllers\ControladorUsuario@softDelete')->middleware(['auth']);
 Route::post('/usuarios-senha/{id}','App\Http\Controllers\ControladorUsuario@updateSenha')->middleware(['auth']);
+Route::post('/usuarios-email/{id}','App\Http\Controllers\ControladorUsuario@updateEmail')->middleware(['auth']);
 
 
 require __DIR__.'/auth.php';

@@ -11,13 +11,14 @@
     ];
     $message = [
         'nome.min' => 'Numero minimo de caracters invalido',
-        'nome.max' => 'Excedeu o N�mero maximo de Caracteres',
+        'nome.max' => 'Excedeu o Número maximo de Caracteres',
         'sobrenome.min' => 'Numero minimo de caracters invalido',
         'cpf.min' => 'O CPF deve conter 11 numeros',
         'email.email' => 'E-mail invalido',
         'tel1.min' => 'Numero invalido: verifique o DDD e a quantidade de caracteres',
         'tel2.min' => 'Numero invalido: verifique o DDD e a quantidade de caracteres',
-         'password.confirmed' => utf8_encode('Os campos senha e confirmar senha n�o conferem'),
+        'password.min' => 'O número mínimo de oito carcteres',
+         'password.confirmed' => 'Os campos senha e confirmar senha não conferem',
     ];
 
     $request->validate($rules, $message);

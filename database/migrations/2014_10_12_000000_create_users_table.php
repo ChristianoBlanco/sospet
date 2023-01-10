@@ -15,19 +15,19 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); //Não alterar , manter original do auth laravel
-            $table->string('email')->unique(); //Não alterar , manter original do auth laravel
+            $table->string('name'); //Nï¿½o alterar , manter original do auth laravel
+            $table->string('email')->unique(); //Nï¿½o alterar , manter original do auth laravel
             $table->string('sobrenome');
             $table->string('cpf',11)->unique();
-            $table->bigInteger('tel1');
-            $table->bigInteger('tel2')->nullable();
+            $table->string('tel1',14);
+            $table->string('tel2',14)->nullable();
             $table->string('endereco');
             $table->string('cidade');
             $table->string('uf');
-            $table->timestamp('email_verified_at')->nullable(); //Não alterar , manter original do auth laravel
-            $table->string('password'); //Não alterar , manter original do auth laravel
-            $table->rememberToken(); //Não alterar , manter original do auth laravel
-            $table->timestamps(); //Não alterar , manter original do auth laravel
+            $table->timestamp('email_verified_at')->nullable(); //Nï¿½o alterar , manter original do auth laravel
+            $table->string('password'); //Nï¿½o alterar , manter original do auth laravel
+            $table->rememberToken(); //Nï¿½o alterar , manter original do auth laravel
+            $table->timestamps(); //Nï¿½o alterar , manter original do auth laravel
             $table->softDeletes();
         });
     }
@@ -40,7 +40,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('users'); //Não alterar , manter original do auth laravel
+        Schema::dropIfExists('users'); //Nï¿½o alterar , manter original do auth laravel
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -11,6 +11,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+use geekcom\ValidatorDocs\Rules\Cpf;
+use geekcom\ValidatorDocs\Rules\Cnpj;
+use geekcom\ValidatorDocs\Rules\Cnh;
+use geekcom\ValidatorDocs\Rules\Renavam;
+use geekcom\ValidatorDocs\Rules\Placa;
+use geekcom\ValidatorDocs\Rules\Ddd;
+use geekcom\ValidatorDocs\Rules\InscricaoEstadual;
+use geekcom\ValidatorDocs\Rules\Nis;
+use geekcom\ValidatorDocs\Rules\Cns;
+use geekcom\ValidatorDocs\Rules\Certidao;
+use geekcom\ValidatorDocs\Rules\TituloEleitoral;
+
+use App\Http\Controllers\Helpers;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -34,10 +48,12 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
+        include('../Includes/validacao_dados/validacao_dados.php');
 
         $user = User::create([
             'name'       => $request->name,

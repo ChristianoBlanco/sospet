@@ -13,24 +13,31 @@
 
     <form class="row g-3" style="margin-top: 20px;">
         @csrf
-        <div class="col-md-4" style="padding-right:10px;">
+
+        <input type="hidden" name="dado_id" value="{{ Auth::user()->id }}">
+
+        <div class="col-md-3" style="padding-right:10px;">
             <label for="inputNomeTutor" class="form-label">Nome do tutor</label>
-            <input type="text" class="form-control" id="nometutor" disabled>
+            <input type="text" class="form-control" id="nometutor" name="" value="{{Auth::user()->name}}" disabled>
         </div>
         <br><br><br>
         <div class="col-md-3" style="padding-right:10px; margin-top:5px;">
-            <label for="inputAnuncio" class="form-label"><?= utf8_encode('Tipo do anúncio') ?></label>
+            <label for="inputAnuncio" class="form-label"><?= 'Tipo do anÃºncio' ?></label>
             <select id="inputAnuncio" class="form-select">
                 <option selected>Choose...</option>
-                <option>...</option>
+                @foreach ( $tipo_anuncios as $tipo_anuncio)
+                  <option>{{ $tipo_anuncio->tipo_anuncio }}</option>
+                @endforeach
             </select>
         </div>
 
         <div class="col-md-3" style="padding-right:10px; margin-top:5px;">
-            <label for="inputTipoPet" class="form-label"><?= utf8_encode('Tipo do pet') ?></label>
+            <label for="inputTipoPet" class="form-label"><?= 'Tipo do pet' ?></label>
             <select id="inputYipoPet" class="form-select">
                 <option selected>Choose...</option>
-                <option>...</option>
+                @foreach ( $tipo_pets as $tipo_pet)
+                  <option>{{ $tipo_pet->tipo_pet }}</option>
+                @endforeach
             </select>
         </div>
 
@@ -40,7 +47,7 @@
         </div>
         <br><br><br><br>
         <div class="col-md-10">
-            <label for="inputDescricao" class="form-label"><?= utf8_encode('Descrição') ?></label>
+            <label for="inputDescricao" class="form-label"><?= 'DescriÃ§Ã£o' ?></label>
             <textarea id="descricao" rows="5" cols="10" class="form-label"></textarea>
         </div>
         <br><br><br><br>
@@ -52,7 +59,7 @@
 
 
         <div class="col-md-12" style="padding-top: 15px;">
-            <button type="submit" class="btn btn-primary"><?= utf8_encode('Adicionar anúncio') ?></button>
+            <button type="submit" class="btn btn-primary"><?= utf8_encode('Adicionar anï¿½ncio') ?></button>
         </div>
     </form>
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tipo_anuncio;
+use App\Models\tipo_pet;
 
 class ControladorAnuncio extends Controller
 {
@@ -13,7 +15,11 @@ class ControladorAnuncio extends Controller
      */
     public function index()
     {
-        return view('index-painel-anuncio');
+        $tipo_anuncios = tipo_anuncio::all();
+        $tipo_pets     = tipo_pet::all();
+
+        //return view('index-painel-anuncio');
+        return view('index-painel-anuncio', compact('tipo_anuncios','tipo_pets'));
     }
 
     /**

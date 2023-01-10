@@ -3,18 +3,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<!-- <script src="//code.jquery.com/jquery-3.4.1.js"></script>
-
--->
-
-
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>
-TemplateToaster.com
-</title>
-
+<title>SOS.Pets</title>
+<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.js')}}"></script>
+<script src="{{ asset('js/plugin/jquery.inputmask.bundle.min.js')}}"></script>
 
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,24 +17,6 @@ TemplateToaster.com
 <link rel="stylesheet" href="{{ asset('css/unslider.css')}}"type="text/css" media="screen"/>
 <link rel="stylesheet" href="{{ asset('css/navbarDrop.css')}}"type="text/css" media="screen"/>
 
-<!--[if lte IE 8]>
-<!--[if lte IE 8]>
-<link rel="stylesheet"  href="menuie.css" type="text/css" media="screen"/>
-<link rel="stylesheet"  href="vmenuie.css" type="text/css" media="screen"/>
-<![endif]-->
-<!-- <script type="text/javascript" src="{{ asset('js/totop.js')}}">
-</script> -->
-<!--[if IE 7]>
-<style type="text/css" media="screen">
-#ttr_vmenu_items  li.ttr_vmenu_items_parent {margin-left:-16px;font-size:0px;}
-</style>
-<![endif]-->
-<!--[if lt IE 9]>
-<script type="text/javascript" src="html5shiv.js">
-</script>
-<script type="text/javascript" src="respond.min.js">
-</script>
-<![endif]-->
 </head>
 <body class="Home">
 <div class="totopshow">
@@ -98,7 +73,7 @@ TemplateToaster.com
         </main>
 
 
-        <script type="text/javascript">
+   <script type="text/javascript">
         WebFontConfig = {
         google: { families: [ 'Open+Sans','Open+Sans:700'] }
         };
@@ -110,6 +85,47 @@ TemplateToaster.com
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(wf, s);
         })();
-        </script>
+
+
+        $(document).ready(function(){
+
+         $(".cpfcnpj").keydown(function(){
+            try {
+               $(".cpfcnpj").unmask();
+            } catch (e) {}
+
+            var tamanho = $(".cpfcnpj").val().length;
+
+            if(tamanho <= 11){
+               $(".cpfcnpj").inputmask("999.999.999-99");
+            } else {
+               $(".cpfcnpj").inputmask("99.999.999/9999-99");
+            }
+            });
+
+         $('.cpf').inputmask('999.999.999-99');
+         $('.cnpj').inputmask('99.999.999/9999-99');
+         $('.titulo').inputmask('999999999/99');
+         $('.cnh').inputmask('99999999999');
+         $('.inscricao_estadual').inputmask('99.999.99-9');
+         $('.nis').inputmask('999.99999.99-9');
+         $('.cns').inputmask('999999999999999');
+         $('.renavam').inputmask('99999999999');
+         $('.certidao').inputmask('999999999999999999999999999999-99');
+         $('.ddd').inputmask('999');
+         $('.tel').inputmask('(99)99999-9999');
+
+
+          });      
+
+
+
+
+
+
+  </script>
+       
+
+
         </body>
         </html>

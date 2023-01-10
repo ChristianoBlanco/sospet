@@ -29,16 +29,20 @@
 
         </div>
         <div class="col-md-4" style="padding-right:10px;">
-            <label for="inputSobrenome" class="form-label">Sobrenome</label>
+            @if ($errors->has('sobrenome'))
+               <label for="inputSobrenome" class="form-label" style="color:red">{{ $errors->first('sobrenome') }}</label>
+            @else
+               <label for="inputSobrenome" class="form-label">Sobrenome</label>
+            @endif
             <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Sobrenome"
                 value="{{ $usuarios->sobrenome }}" maxlength="50" autocomplete="sobrenome" required>
         </div>
 
         <div class="col-md-4" style="padding-right:10px;">
             @if ($errors->has('cpf'))
-                <label for="inputNome" class="form-label" style="color:red">{{ $errors->first('cpf') }}</label>
+                <label for="inputCpf" class="form-label" style="color:red">{{ $errors->first('cpf') }}</label>
             @else
-                <label for="inputNome" class="form-label">CPF</label>
+                <label for="inputCpf" class="form-label">CPF</label>
             @endif
             <input type="text" class="form-control cpf" id="cpf" name="cpf" placeholder="CPF"
                 value="{{ $usuarios->cpf }}" required>
@@ -54,10 +58,10 @@
             <label for="inputState" class="form-label" style="padding-right:10px;">Cidade</label>
             <select id="inputState" class="form-select" name="cidade" required>
                 <option selected>{{ $usuarios->cidade }}</option>
-                <option><?= utf8_encode('Esp�rito Santo') ?></option>
-                <option><?= utf8_encode('Minas Gerais') ?></option>
-                <option><?= utf8_encode('Rio de Janeiro') ?></option>
-                <option><?= utf8_encode('S�o Paulo') ?></option>
+                <option><?= 'Espírito Santo' ?></option>
+                <option><?= 'Minas Gerais' ?></option>
+                <option><?= 'Rio de Janeiro' ?></option>
+                <option><?= 'São Paulo' ?></option>
             </select>
         </div>
 
@@ -72,20 +76,24 @@
             </select>
         </div>
 
-        <div class="col-md-6" style="padding-right:10px;  margin-top:15px;">
-            <label for="inputEmail" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{ $usuarios->email }}"
-                placeholder="E-mail" maxlength="100">
-        </div>
+        
 
         <div class="col-md-3" style="padding-right:10px; margin-top:15px; ">
-            <label for="inputTel1" class="form-label">Telefone 1</label>
+            @if ($errors->has('tel1'))
+                <label for="inputTel1" class="form-label" style="color:red">{{ $errors->first('tel1') }}</label>
+            @else
+                <label for="inputTel1" class="form-label">Telefone 1</label>
+            @endif
             <input type="text" class="form-control tel" id="tel1" name="tel1"
                 placeholder="Celular ou Convencional" value="{{ $usuarios->tel1 }}" maxlength="14"
                 onkeypress="return onlynumber();" required>
         </div>
         <div class="col-md-3" style="padding-right:10px; margin-top:15px; ">
-            <label for="inputTel2" class="form-label">Telefone 2</label>
+            @if ($errors->has('tel2'))
+                <label for="inputTel2" class="form-label" style="color:red">{{ $errors->first('tel2') }}</label>
+            @else
+                <label for="inputTel2" class="form-label">Telefone 2 (opcional)</label>
+            @endif
             <input type="text" class="form-control tel" id="tel2" name="tel2"
                 placeholder="Celular ou Convencional" value="{{ $usuarios->tel2 }}"
                 onkeypress="return onlynumber();" maxlength="14">
@@ -103,14 +111,14 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header" >
-                        <h5 class="modal-title" id="exampleModalLabel"><?= utf8_encode('Dados do usu�rio'); ?></h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?= 'Dados do usuário'; ?></h5>
                     </div>
                     <div class="modal-body">
                         Deseja exluir realmente sua conta ?
 
                         <ul style="margin-left:30px;margin-top:15px;">
-                            <li><?= utf8_encode('Depois de Exlu�da somente o Administrador pode recuperar.'); ?></li>
-                            <li><?= utf8_encode('Ou criar uma nova conta mas com e-mail novo.'); ?></li>
+                            <li><?= 'Depois de Exluída somente o Administrador pode recuperar.'; ?></li>
+                            <li><?= 'Ou criar uma nova conta mas com e-mail novo.'; ?></li>
                         </ul>
                     </div>
                     <div class="modal-footer">

@@ -120,6 +120,17 @@ class ControladorUsuario extends Controller
         return redirect('/painel'); //redirects direcionam para Routes/web.php
     }
 
+    public function editEmail($id)
+    {
+        //
+
+        $usuarios = User::find($id);
+        if(isset($usuarios)) {
+            return view('index-painel-usuario-email', compact('usuarios')); // views direcionam para pasta de Views
+        }
+        return redirect('/painel'); //redirects direcionam para Routes/web.php
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -145,7 +156,7 @@ class ControladorUsuario extends Controller
             $usuarios->cpf              = $help->formatacpf($request->cpf);
             $usuarios->tel1             = $help->formataTelefone($request->tel1);
             $usuarios->tel2             = $help->formataTelefone($request->tel2);
-            $usuarios->email            = $request->email;
+            //$usuarios->email            = $request->email;
             //$usuarios->password         = Hash::make($request->password);
             $usuarios->endereco         = $request->endereco;
             $usuarios->cidade           = $request->cidade;
@@ -168,6 +179,18 @@ class ControladorUsuario extends Controller
         return redirect('/painel-edit-usuario-senha/'.$id)->with('msg_status', 'Senha alterada com sucesso !');
     }
 
+    public function updateEmail(Request $request, $id)
+    {
+        //include('../Includes/validacao_dados/validacao_dados_senha.php');
+
+        $usuarios = User::find($id);
+        if (isset($usuarios)) {
+             $usuarios->email   = $request->email;
+             $usuarios->save();
+        }
+        return redirect('/painel-edit-usuario-email/'.$id)->with('msg_status', 'E-mail alterado com sucesso !');
+    }
+
     public function softDelete(Request $request, $id)
     {
 
@@ -176,6 +199,8 @@ class ControladorUsuario extends Controller
 
         return redirect('/index');
     }
+
+    
 
 
 
