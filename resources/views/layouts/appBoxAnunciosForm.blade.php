@@ -11,7 +11,7 @@
 </style>
 <div class="box content" style="font-size:15px;">
 
-    <form  method="POST" action="{{ url('/usuarios') }}" class="row g-3" style="margin-top: 20px;" enctype="multipart/form-data">
+    <form  method="POST" action="{{ url('/anuncios') }}" class="row g-3" style="margin-top: 20px;" enctype="multipart/form-data">
         @csrf
 
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
