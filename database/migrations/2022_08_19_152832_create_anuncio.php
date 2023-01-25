@@ -25,6 +25,7 @@ class CreateAnuncio extends Migration
             $table->string('foto2',100)->nullable();
             $table->string('foto3',100)->nullable();
             $table->string('foto4',100)->nullable();
+            $table->integer('num_status');
             $table->dateTime('dt_anuncio');
             $table->timestamps();
             $table->softDeletes();

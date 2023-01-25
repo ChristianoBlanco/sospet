@@ -148,7 +148,7 @@ class ControladorUsuario extends Controller
        
         
        $usuarios = User::find($id);
-        $help = new Helpers;
+       $help = new Helpers;
 
         if(isset($usuarios)){
             $usuarios->name             = $request->nome;

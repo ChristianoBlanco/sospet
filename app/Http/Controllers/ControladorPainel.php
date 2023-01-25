@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\anuncio;
-use App\Models\cad_dado;
+use App\Models\status;
 use Auth;
 
 class ControladorPainel extends Controller
@@ -22,9 +22,13 @@ class ControladorPainel extends Controller
     public function indexjson()
     {
         //return  anuncio::paginate(10); //Pagina todos os campos da tabela anuncio
-        //$id_login = Auth::user()->get(); //Pega todos os campos de login de usuários
-        $id_login = Auth::user()->id; //Pega as informações da tabela escolhida como acesso dentro do arquivo auth.php
-        return anuncio::where('dado_id', $id_login)->paginate(10);
+        //$id_login = Auth::user()->get(); //Pega todos os campos de login de usuï¿½rios
+        $id_login = Auth::user()->id; //Pega as informaï¿½ï¿½es da tabela escolhida como acesso dentro do arquivo auth.php
+
+        $status = DB::table('anuncios AS a')->join('status AS s','a.num_status','=','s.num_status')->where('a.dado_id', $id_login)->paginate(10);
+
+        //return anuncio::where('dado_id', $id_login)->paginate(10);
+        return $status;
     }
 
     public function indexForm()

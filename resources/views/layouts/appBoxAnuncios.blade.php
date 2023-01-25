@@ -1,22 +1,23 @@
 <div class="box content" style="font-size:15px; ">
-    <h1 style="font-size: 20px; font-weight: 900; color:#000000; margin-bottom:50px;"><?= utf8_encode('Meus an˙ncios'); ?></h1>
+    <h1 style="font-size: 20px; font-weight: 900; color:#000000; margin-bottom:50px;"><?= 'Meus an√∫ncios'; ?>
+    </h1>
     <table class="table table-hover" id="tabelaAnuncios">
         <thead>
             <th>#</th>
-            <th><?= utf8_encode('Tipo do an˙ncio'); ?></th>
+            <th><?= 'Tipo do an√∫ncio'; ?></th>
             <th>Nome do pet</th>
             <th>Status</th>
-            <th><?= utf8_encode('AÁıes'); ?></th>
+            <th><?= 'A√ß√µes'; ?></th>
         </thead>
 
         <tbody>
 
 
             <tr>
-                <td>1</td>
-                <td>Perdido</td>
-                <td><?= utf8_encode('Jo„o'); ?></td>
-                <td>Aberto</td>
+                <td>0</td>
+                <td><?= ' '; ?></td>
+                <td><?= ' '; ?></td>
+                <td><?= ' '; ?></td>
                 <td>edit | del</td>
             </tr>
 
@@ -25,22 +26,21 @@
     </table>
 
 
-        <nav id="paginationNav">
-            <ul class="pagination pagination-sm">
-            </ul>
-        </nav>
+    <nav id="paginationNav">
+        <ul class="pagination pagination-sm">
+        </ul>
+    </nav>
 
 
 
 
     <script type="text/javascript">
-
-function getNextItem(data) {
+        function getNextItem(data) {
             i = data.current_page + 1;
             if (data.current_page >= data.last_page)
                 s = '<li class="page-item disabled">';
             else
-            s = '<li class="page-item">';
+                s = '<li class="page-item">';
             s += '<a class="page-link" ' + 'pagina="' + i + '" ' + ' href="javascript:void(0);" disabled >Pr√≥ximo</a></li>';
             return s;
         }
@@ -100,10 +100,10 @@ function getNextItem(data) {
 
         function montarLinha(cliente) {
             return '<tr>' +
-                '  <th scope="row">' + cliente.id + '</th>' +
-                '  <td>' + cliente.nome + '</td>' +
+                '  <th scope="row">' + cliente.id_anuncio + '</th>' +
                 '  <td>' + cliente.tipo + '</td>' +
-                '  <td>' + cliente.status + '</td>' +
+                '  <td>' + cliente.nome + '</td>' +
+                '  <td>' + cliente.tipo_status + '</td>' +
                 '  <td>Edit | Del</td>' +
                 '</tr>';
         }

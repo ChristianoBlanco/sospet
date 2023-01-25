@@ -23,6 +23,7 @@ class anuncio extends Model
     "foto2",
     "foto3",
     "foto4",
+    "num_status",
     "dt_anuncio"
     ];
 
