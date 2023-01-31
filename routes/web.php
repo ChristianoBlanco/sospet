@@ -39,6 +39,8 @@ Route::get('/usuarios-softdelete/{id}','App\Http\Controllers\ControladorUsuario@
 Route::post('/usuarios-senha/{id}','App\Http\Controllers\ControladorUsuario@updateSenha')->middleware(['auth']);
 Route::post('/usuarios-email/{id}','App\Http\Controllers\ControladorUsuario@updateEmail')->middleware(['auth']);
 
+//Route::get('/anuncios-edit/{id}','App\Http\Controllers\ControladorAnuncio@edit')->middleware(['auth']);
+//Route::post('/anuncios/{id}','App\Http\Controllers\ControladorAnuncio@update')->middleware(['auth']);
 Route::post('/anuncios', 'App\Http\Controllers\ControladorAnuncio@store')->middleware(['auth']);
 
 

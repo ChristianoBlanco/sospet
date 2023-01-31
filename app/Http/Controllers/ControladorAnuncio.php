@@ -113,10 +113,16 @@ class ControladorAnuncio extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+     */  
+    
+     public function edit($id)
     {
         //
+        $anuncios = anuncio::find($id);
+        if(isset($usuarios)) {
+            return view('index-painel-anuncio-edit', compact('anuncios')); // views direcionam para pasta de Views
+        }
+        return redirect('/painel'); //redirects direcionam para Routes/web.php
     }
 
     /**

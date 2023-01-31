@@ -103,8 +103,8 @@
                 '  <th scope="row">' + cliente.id_anuncio + '</th>' +
                 '  <td>' + cliente.tipo + '</td>' +
                 '  <td>' + cliente.nome + '</td>' +
-                '  <td>' + cliente.tipo_status + '</td>' +
-                '  <td>Edit | Del</td>' +
+                '  <td>' + cliente.tipo_status + '</td>' +  
+                '  <td><a href="{{ url('/anuncios-edit') }}{{ '/' }}' + cliente.id_anuncio +' ">Edit</a> | Del</td>' +
                 '</tr>';
         }
 
@@ -117,11 +117,11 @@
             }
         }
 
-        function carregarClientes(pagina) {
+        function carregarClientes(pagina) { //Função que pega do JSON as informações para montar a tabela
             $.get('/json', {
                 page: pagina
             }, function(resp) {
-                console.log(resp);
+                console.log(resp); //Console lof IMPORTANTE! para verificar pelo browser os campos via json p chamar no jscript. !!!!!
                 console.log(resp.data.length);
                 montarTabela(resp);
                 montarPaginator(resp);
