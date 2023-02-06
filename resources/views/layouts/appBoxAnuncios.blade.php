@@ -1,5 +1,5 @@
 <div class="box content" style="font-size:15px; ">
-    <h1 style="font-size: 20px; font-weight: 900; color:#000000; margin-bottom:50px;"><?= 'Meus anúncios'; ?>
+    <h1 style="font-size: 18px; font-weight: 900; color:#000000; margin-bottom:50px;"><?= 'Meus anúncios'; ?>
     </h1>
     <table class="table table-hover" id="tabelaAnuncios">
         <thead>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\tipo_anuncio;
 use App\Models\tipo_pet;
 use App\Models\anuncio;
@@ -39,6 +40,11 @@ class ControladorAnuncio extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function store_fotos(Request $request)
+    {
+        //
+        return redirect('/painel');
+    }
     public function store(Request $request)
     {
         $date = date('Y-m-d H:i:s');
@@ -117,10 +123,15 @@ class ControladorAnuncio extends Controller
     
      public function edit($id)
     {
+        $id_anuncio = $id;
         //
-        $anuncios = anuncio::find($id);
-        if(isset($usuarios)) {
-            return view('index-painel-anuncio-edit', compact('anuncios')); // views direcionam para pasta de Views
+        $tipo_anuncios = tipo_anuncio::all();
+        $tipo_pets     = tipo_pet::all();
+        
+        $anuncios = anuncio::where('id_anuncio', $id)->first();
+        $lista_anuncios = anuncio::where('id_anuncio', $id)->get();
+        if(isset($anuncios)) {
+            return view('index-painel-anuncio-edit', compact('anuncios','lista_anuncios','tipo_anuncios', 'tipo_pets')); // views direcionam para pasta de Views
         }
         return redirect('/painel'); //redirects direcionam para Routes/web.php
     }
@@ -135,6 +146,7 @@ class ControladorAnuncio extends Controller
     public function update(Request $request, $id)
     {
         //
+        return "Alterar anúncio";
     }
 
     /**
