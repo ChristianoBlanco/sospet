@@ -12,8 +12,8 @@
     <h1 style="font-size: 18px; font-weight: 900; color:#000000; margin-bottom:'10px;">
         <?= 'Alterar anúncio' ?></h1>
 
-    <form method="POST" action="{{ url('/anuncios') }}{{ '/' }}{{ $anuncios->id_anuncio }}" class="row g-3" style="margin-top: 20px;"
-        enctype="multipart/form-data">
+    <form method="POST" action="{{ url('/anuncios') }}{{ '/' }}{{ $anuncios->id }}" class="row g-3"
+        style="margin-top: 20px;" enctype="multipart/form-data">
         @csrf
 
         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -84,12 +84,18 @@
             </div>
         </div>
         <!-- Modal Fim -->
+        <div class="col-md-10">
+            <div class="nomeArquivo1"></div>
+            <div class="nomeArquivo2"></div>
+            <div class="nomeArquivo3"></div>
+            <div class="nomeArquivo4"></div>
+        </div>
 
 
 
         <div class="col-md-12" style="padding-top: 15px;">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Adicionar
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Selecionar
                 fotos</button>
             <button type="submit" class="btn btn-primary"><?= 'Gravar anúncio' ?></button>
         </div>
@@ -210,3 +216,34 @@
 </div>
 
 </div>
+<script>
+    $(document).ready(function() {
+        $('input[name="arquivo1"]').change(function(e) {
+            var geekss = e.target.files[0].name;
+            //$("h4").text(geekss + ' is the selected file.');
+            div = document.getElementsByClassName("nomeArquivo1")[0];
+            div.innerHTML = geekss;
+        });
+
+        $('input[name="arquivo2"]').change(function(e) {
+            var geekss = e.target.files[0].name;
+            //$("h4").text(geekss + ' is the selected file.');
+            div = document.getElementsByClassName("nomeArquivo2")[0];
+            div.innerHTML = geekss;
+        });
+
+        $('input[name="arquivo3"]').change(function(e) {
+            var geekss = e.target.files[0].name;
+            //$("h4").text(geekss + ' is the selected file.');
+            div = document.getElementsByClassName("nomeArquivo3")[0];
+            div.innerHTML = geekss;
+        });
+
+        $('input[name="arquivo4"]').change(function(e) {
+            var geekss = e.target.files[0].name;
+            //$("h4").text(geekss + ' is the selected file.');
+            div = document.getElementsByClassName("nomeArquivo4")[0];
+            div.innerHTML = geekss;
+        });
+    });
+</script>

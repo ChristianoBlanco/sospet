@@ -58,33 +58,38 @@ class ControladorAnuncio extends Controller
             $namefile1 = "arq1-{$name_randon}.{$extension1}";
             $path1 = $request->arquivo1->storeAs($name_folder, $namefile1, 'public'); //StoreAs: salva na pasta criada,renomeia,salva no disco destino
 
-        }else{ $path1 = 'Null';}
+        } else {
+            $path1 = 'Null';
+        }
 
         if ($request->hasFile('arquivo2')) {
             $request->file('arquivo2');
             $extension2 = $request->arquivo2->extension();
             $namefile2 = "arq2-{$name_randon}.{$extension2}";
             $path2 = $request->arquivo2->storeAs($name_folder, $namefile2, 'public');
-        
-        }else{$path2 = 'Null';}
-        
+        } else {
+            $path2 = 'Null';
+        }
+
         if ($request->hasFile('arquivo3')) {
             $request->file('arquivo3');
             $extension3 = $request->arquivo3->extension();
             $namefile3 = "arq3-{$name_randon}.{$extension3}";
             $path3 = $request->arquivo3->storeAs($name_folder, $namefile3, 'public');
-        
-        }else{$path3 = 'Null';}
-        
+        } else {
+            $path3 = 'Null';
+        }
+
 
         if ($request->hasFile('arquivo4')) {
             $request->file('arquivo4');
             $extension4 = $request->arquivo4->extension();
             $namefile4 = "arq4-{$name_randon}.{$extension4}";
             $path4 = $request->arquivo4->storeAs($name_folder, $namefile4, 'public');
-        
-        }else{$path4 = 'Null';}
-        
+        } else {
+            $path4 = 'Null';
+        }
+
         $anuncios = new anuncio();
         $anuncios->dado_id    = $request->input('user_id');
         $anuncios->tipo       = $request->input('tipo_anuncio');
@@ -100,7 +105,7 @@ class ControladorAnuncio extends Controller
         $anuncios->save();
 
         return redirect('/painel'); //Redireciona para a página do panel principal onde fica a listagem de anuncios.
-        
+
     }
 
     /**
@@ -119,19 +124,19 @@ class ControladorAnuncio extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */  
-    
-     public function edit($id)
+     */
+
+    public function edit($id)
     {
-        $id_anuncio = $id;
+        //$id_anuncio = $id;
         //
         $tipo_anuncios = tipo_anuncio::all();
         $tipo_pets     = tipo_pet::all();
-        
-        $anuncios = anuncio::where('id_anuncio', $id)->first();
-        $lista_anuncios = anuncio::where('id_anuncio', $id)->get();
-        if(isset($anuncios)) {
-            return view('index-painel-anuncio-edit', compact('anuncios','lista_anuncios','tipo_anuncios', 'tipo_pets')); // views direcionam para pasta de Views
+
+        $anuncios = anuncio::where('id', $id)->first();
+        $lista_anuncios = anuncio::where('id', $id)->get();
+        if (isset($anuncios)) {
+            return view('index-painel-anuncio-edit', compact('anuncios', 'lista_anuncios', 'tipo_anuncios', 'tipo_pets')); // views direcionam para pasta de Views
         }
         return redirect('/painel'); //redirects direcionam para Routes/web.php
     }
@@ -146,7 +151,72 @@ class ControladorAnuncio extends Controller
     public function update(Request $request, $id)
     {
         //
-        return "Alterar anúncio";
+        $date = date('Y-m-d H:i:s');
+        $date_folder = date('Y-m-d-H.i.s');
+        $name_randon = uniqid(date('HisYmd'));
+        $name_folder = "imagens/users/ID-{$request->input('user_id')}/{$date_folder}";
+
+        if ($request->hasFile('arquivo1')) {
+            $request->file('arquivo1');
+            $extension1 = $request->arquivo1->extension();
+            $namefile1 = "arq1-{$name_randon}.{$extension1}";
+            $path1 = $request->arquivo1->storeAs($name_folder, $namefile1, 'public'); //StoreAs: salva na pasta criada,renomeia,salva no disco destino
+
+        } else {
+            $path1 = 'Null';
+        }
+
+        if ($request->hasFile('arquivo2')) {
+            $request->file('arquivo2');
+            $extension2 = $request->arquivo2->extension();
+            $namefile2 = "arq2-{$name_randon}.{$extension2}";
+            $path2 = $request->arquivo2->storeAs($name_folder, $namefile2, 'public');
+        } else {
+            $path2 = 'Null';
+        }
+
+        if ($request->hasFile('arquivo3')) {
+            $request->file('arquivo3');
+            $extension3 = $request->arquivo3->extension();
+            $namefile3 = "arq3-{$name_randon}.{$extension3}";
+            $path3 = $request->arquivo3->storeAs($name_folder, $namefile3, 'public');
+        } else {
+            $path3 = 'Null';
+        }
+
+
+        if ($request->hasFile('arquivo4')) {
+            $request->file('arquivo4');
+            $extension4 = $request->arquivo4->extension();
+            $namefile4 = "arq4-{$name_randon}.{$extension4}";
+            $path4 = $request->arquivo4->storeAs($name_folder, $namefile4, 'public');
+        } else {
+            $path4 = 'Null';
+        }
+
+        $anuncios = anuncio::find($id);
+        $anuncios->dado_id    = $request->user_id;
+        $anuncios->tipo       = $request->tipo_anuncio;
+        $anuncios->pet        = $request->tipo_pet;
+        $anuncios->nome       = $request->nome_pet;
+        $anuncios->descricao  = $request->descricao;
+        if ($path1 !== "Null") {
+            $anuncios->foto1      = $path1;
+        }
+        if ($path2 !== "Null") {
+            $anuncios->foto2      = $path2;
+        }
+        if ($path3 !== "Null") {
+            $anuncios->foto3      = $path3;
+        }
+        if ($path4 !== "Null") {
+            $anuncios->foto4      = $path4;
+        }
+        $anuncios->num_status = "1";
+        $anuncios->dt_anuncio = $date;
+        $anuncios->save();
+
+        return redirect('/anuncios-edit/' . $id); //Redireciona para a página do panel principal onde fica a listagem de anuncios.
     }
 
     /**
@@ -158,5 +228,13 @@ class ControladorAnuncio extends Controller
     public function destroy($id)
     {
         //
+        $anuncios = anuncio::find($id);
+        $anuncios->delete();
+
+        return redirect('/painel');
+
     }
 }
+
+ //$p = new  App\Models\anuncio();
+ //$p->onlyTrashed()->where('id', '2')->restore(); //Para recuperar o softdelete

@@ -85,19 +85,20 @@
             </div>
         </div>
         <!-- Modal Fim -->
-        <div class="col-md-10"> 
+        <div class="col-md-10">
             <div class="nomeArquivo1"></div>
             <div class="nomeArquivo2"></div>
             <div class="nomeArquivo3"></div>
             <div class="nomeArquivo4"></div>
-           </div>
-        
+        </div>
+
         <div class="col-md-12" style="padding-top: 25px;">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Adicionar fotos</button>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Selecionar
+                fotos</button>
             <button type="submit" class="btn btn-primary"><?= 'Gravar anúncio' ?></button>
         </div>
-       
+
 
     </form>
 
@@ -119,14 +120,14 @@
             div = document.getElementsByClassName("nomeArquivo2")[0];
             div.innerHTML = geekss;
         });
-        
+
         $('input[name="arquivo3"]').change(function(e) {
             var geekss = e.target.files[0].name;
             //$("h4").text(geekss + ' is the selected file.');
             div = document.getElementsByClassName("nomeArquivo3")[0];
             div.innerHTML = geekss;
         });
-        
+
         $('input[name="arquivo4"]').change(function(e) {
             var geekss = e.target.files[0].name;
             //$("h4").text(geekss + ' is the selected file.');

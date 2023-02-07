@@ -41,7 +41,7 @@ Route::post('/usuarios-email/{id}','App\Http\Controllers\ControladorUsuario@upda
 
 Route::get('/anuncios-edit/{id}','App\Http\Controllers\ControladorAnuncio@edit')->middleware(['auth']);
 Route::post('/anuncios/{id}','App\Http\Controllers\ControladorAnuncio@update')->middleware(['auth']);
-Route::post('/anuncios-fotos', 'App\Http\Controllers\ControladorAnuncio@store_fotos')->middleware(['auth']);
+Route::get('/anuncios-sofdelete/{id}','App\Http\Controllers\ControladorAnuncio@destroy')->middleware(['auth']);
 Route::post('/anuncios', 'App\Http\Controllers\ControladorAnuncio@store')->middleware(['auth']);
 
 

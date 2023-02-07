@@ -1,13 +1,13 @@
 <div class="box content" style="font-size:15px; ">
-    <h1 style="font-size: 18px; font-weight: 900; color:#000000; margin-bottom:50px;"><?= 'Meus anúncios'; ?>
+    <h1 style="font-size: 18px; font-weight: 900; color:#000000; margin-bottom:50px;"><?= 'Meus anúncios' ?>
     </h1>
     <table class="table table-hover" id="tabelaAnuncios">
         <thead>
             <th>#</th>
-            <th><?= 'Tipo do anúncio'; ?></th>
+            <th><?= 'Tipo do anúncio' ?></th>
             <th>Nome do pet</th>
             <th>Status</th>
-            <th><?= 'Ações'; ?></th>
+            <th><?= 'Ações' ?></th>
         </thead>
 
         <tbody>
@@ -15,9 +15,9 @@
 
             <tr>
                 <td>0</td>
-                <td><?= ' '; ?></td>
-                <td><?= ' '; ?></td>
-                <td><?= ' '; ?></td>
+                <td><?= ' ' ?></td>
+                <td><?= ' ' ?></td>
+                <td><?= ' ' ?></td>
                 <td>edit | del</td>
             </tr>
 
@@ -100,11 +100,13 @@
 
         function montarLinha(cliente) {
             return '<tr>' +
-                '  <th scope="row">' + cliente.id_anuncio + '</th>' +
+                '  <th scope="row">' + cliente.id + '</th>' +
                 '  <td>' + cliente.tipo + '</td>' +
                 '  <td>' + cliente.nome + '</td>' +
-                '  <td>' + cliente.tipo_status + '</td>' +  
-                '  <td><a href="{{ url('/anuncios-edit') }}{{ '/' }}' + cliente.id_anuncio +' ">Edit</a> | Del</td>' +
+                '  <td>' + cliente.tipo_status + '</td>' +
+                '  <td><a href="{{ url('/anuncios-edit') }}{{ '/' }}' + cliente.id +
+                ' ">Edit</a> | <a href="{{ url('/anuncios-sofdelete') }}{{ '/' }}' + cliente.id +
+                ' " onclick="softDelete()">Del</a></td>' +
                 '</tr>';
         }
 
@@ -121,7 +123,9 @@
             $.get('/json', {
                 page: pagina
             }, function(resp) {
-                console.log(resp); //Console lof IMPORTANTE! para verificar pelo browser os campos via json p chamar no jscript. !!!!!
+                console.log(
+                    resp
+                    ); //Console lof IMPORTANTE! para verificar pelo browser os campos via json p chamar no jscript. !!!!!
                 console.log(resp.data.length);
                 montarTabela(resp);
                 montarPaginator(resp);
@@ -138,6 +142,10 @@
         $(function() {
             carregarClientes(1);
         });
+
+        function softDelete() {
+            confirm("Confirmar exclusão ?");
+        }
     </script>
 
 </div>

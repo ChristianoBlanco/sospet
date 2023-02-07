@@ -26,7 +26,10 @@ class ControladorPainel extends Controller
         //$id_login = Auth::user()->get(); //Pega todos os campos de login de usu�rios
         $id_login = Auth::user()->id; //Pega as informa��es da tabela escolhida como acesso dentro do arquivo auth.php
 
-        $status = DB::table('anuncios AS a')->join('status AS s','a.num_status','=','s.num_status')->where('a.dado_id', $id_login)->paginate(10);
+        $status = DB::table('anuncios AS a')->select('a.*', 's.tipo_status')->join('status AS s', 'a.num_status', '=', 's.num_status')
+        ->where('a.dado_id', $id_login)
+        ->where('a.deleted_at','=', Null) 
+        ->paginate(10);
 
         //return anuncio::where('dado_id', $id_login)->paginate(10);
         return $status;
@@ -44,7 +47,6 @@ class ControladorPainel extends Controller
      */
     public function create()
     {
-
     }
 
     /**
